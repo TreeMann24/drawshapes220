@@ -96,6 +96,8 @@ public abstract class AbstractShape implements IShape
             return "RED";
         } else if (color == Color.BLUE) {
             return "BLUE";
+        } else if (color == Color.GREEN) {
+            return "GREEN";
         }
         throw new UnsupportedOperationException("Unexpected color: "+color);
     }

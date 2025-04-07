@@ -30,7 +30,8 @@ public class DrawShapes extends JFrame
     public enum ShapeType {
         SQUARE,
         CIRCLE,
-        RECTANGLE
+        RECTANGLE,
+        TRIANGLE
     }
     
     private DrawShapesPanel shapePanel;
@@ -90,6 +91,12 @@ public class DrawShapes extends JFrame
                                 e.getPoint(),
                                 100, 
                                 200,
+                                color));
+                    } else if (shapeType == ShapeType.TRIANGLE) {
+                        scene.addShape(new Triangle(
+                                e.getPoint(),
+                                100, 
+                                100,
                                 color));
                     }
                     
@@ -204,7 +211,7 @@ public class DrawShapes extends JFrame
             }
         });
         fileMenu.addSeparator();
-        // edit
+        // exit
         JMenuItem itemExit = new JMenuItem ("Exit");
         fileMenu.add(itemExit);
         itemExit.addActionListener(new ActionListener() {
@@ -279,6 +286,28 @@ public class DrawShapes extends JFrame
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Circle");
                 shapeType = ShapeType.CIRCLE;
+            }
+        });
+
+        // rectangle
+        JMenuItem rectangleItem = new JMenuItem("Rectangle");
+        shapeMenu.add(rectangleItem);
+        rectangleItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Rectangle");
+                shapeType = ShapeType.RECTANGLE;
+            }
+        });
+
+        // triangle
+        JMenuItem triangleItem = new JMenuItem("Triangle");
+        shapeMenu.add(triangleItem);
+        triangleItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Triangle");
+                shapeType = ShapeType.TRIANGLE;
             }
         });
         
